@@ -1,0 +1,17 @@
+<h1>投稿の一覧</h1>
+<ul class="notes">
+  <!-- ここでeachメソッドを用いてください -->
+  <% @notes.each do |note| %>
+
+    <li>
+      <p>タイトル</p>
+      <span class="content">
+        <!-- ここでゲッターを用いてtitleを表示してください -->
+        <%= note.title %>
+
+      </span>
+    </li>
+  <!-- ここにeachメソッドのendを書いてください -->
+  <% end %>
+
+</ul>
