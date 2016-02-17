@@ -1,11 +1,10 @@
 class NotesController < ApplicationController
-  before_aciton :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_note, only: [:show, :edit, :update, :destroy]
   def new
   end
   def create
-    @note = Note.new
-    @note.title = params[:title]
-    @note.content = params[:content]
+    @note = Note.new(title: params[:title],
+                     content: params[:content])
     @note.save
     redirect_to note_path(@note.id)
   end
