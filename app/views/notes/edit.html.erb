@@ -1,0 +1,6 @@
+<h1>投稿を編集する</h1>
+<%= form_tag do %>
+ <%= text_field_tag :title, @note.title %>
+ <%= text_area_tag :content, @note.content %>
+ <%= submit_tag '保存' %>
+<% end %>
