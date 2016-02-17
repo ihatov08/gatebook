@@ -2,7 +2,9 @@ class NotesController < ApplicationController
   def new
   end
   def create
-    @title = params[:title]
-    @content = params[:content]
+    @note = Note.new
+    @note.title = params[:title]
+    @note.content = params[:content]
+    @note.save
   end
 end
