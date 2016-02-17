@@ -1,5 +1,5 @@
 <h1>新規投稿する</h1>
-<%= form_for do |f| %>
+<%= form_for(@note) do |f| %>
 
  <% if @note.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
@@ -14,8 +14,8 @@
   <% end %>
 
  タイトル
-<%= text_field_tag 'note[title]', @note.title, class: "form-control title:field" %>
+<%= f.text_field :title, class: "form-control title:field" %>
 内容
-<%= text_area_tag 'note[content]', @note.content, class: "form-control content-field" %>
-<input type="submit" value="投稿する" class="btn primary-btn">
+<%= f.text_area :content, class: "form-control content-field" %>
+<%= f.submit "保存", class: "btn primary-btn" %>
 <% end %>
