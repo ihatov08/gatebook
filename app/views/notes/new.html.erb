@@ -1,5 +1,5 @@
 <h1>新規投稿する</h1>
-<%= form_tag notes_path do %>
+<%= form_for do |f| %>
 
  <% if @note.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
