@@ -8,7 +8,27 @@
 </head>
 <body>
 
+<header class="navbar">
+  <div class="container">
+    <div id="logo">Gatebook</div>
+    <ul class="header-right">
+      <li><%= link_to 'Top', root_path %></li>
+      <li><%= link_to 'about', about_path %></li>
+    </ul>
+  </div>
+</header>
+
+<div class="container">
 <%= yield %>
+</div>
+
+<div class="container">
+  <footer class="footer">
+    <div class="small">
+      &copy; 2015 Progate, Inc.
+    </div>
+  </footer>
+</div>
 
 </body>
 </html>
