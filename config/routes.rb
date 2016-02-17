@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/top' => 'home#top'
+  root 'home#top'
   get '/about' => 'home#about'
 
   # The priority is based upon order of creation: first created -> highest priority.
