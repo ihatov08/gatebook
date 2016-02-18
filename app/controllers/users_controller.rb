@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @notes = Note.where(user_id: @user.id)
+    @notes = @user.notes
   end
 
   # GET /users/new

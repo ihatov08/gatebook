@@ -4,6 +4,9 @@
   <% @notes.each do |note| %>
 
     <li>
+     <span class="user-name">
+      <%= note.user.name %>
+      </span>
       <p>タイトル</p>
       <span class="content">
         <!-- ここでゲッターを用いてtitleを表示してください -->
@@ -12,6 +15,7 @@
       </span>
     </li>
   <!-- ここにeachメソッドのendを書いてください -->
+
   <% end %>
 
 </ul>
