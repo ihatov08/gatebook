@@ -23,8 +23,8 @@ class NotesController < ApplicationController
   end
 
   def update
-    @note.title = params[:title]
-    @note.content = params[:content]
+    @note.title = params[:note][:title]
+    @note.content = params[:note][:content]
     @note.save
     redirect_to note_path(@note.id)
   end
