@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'hirb'
+gem 'devise', '3.5.1'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
