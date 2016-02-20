@@ -2,9 +2,7 @@ class NotesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_note, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [ :edit, :update]
-  def new
-    @note = Note.new
-  end
+
   def create
     @note = Note.new(note_params)
     if @note.save
@@ -12,10 +10,6 @@ class NotesController < ApplicationController
   else
     render :new
   end
-  end
-
-  def index
-    @notes = Note.all
   end
 
   def show
