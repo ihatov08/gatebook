@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [ :edit, :update]
   def new
     @note = Note.new
   end
@@ -44,6 +45,14 @@ class NotesController < ApplicationController
    def note_params
     params.require(:note).permit(:title, :content, :user_id)
    end
+
+   def correct_user
+      note = Note.find(params[:id])
+      # noteを投稿したユーザーを取得し、current_user?メソッドの引数に渡してください
+      if !current_user?(note.user)
+        redirect_to root_path, alert: '許可されていないページです'
+      end
+    end
 
 
 end
