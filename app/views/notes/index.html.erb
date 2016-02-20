@@ -1,21 +1,7 @@
 <h1>投稿の一覧</h1>
 <ul class="notes">
-  <!-- ここでeachメソッドを用いてください -->
   <% @notes.each do |note| %>
-
-    <li>
-     <span class="user-name">
-      <%= note.user.name %>
-      </span>
-      <p>タイトル</p>
-      <span class="content">
-        <!-- ここでゲッターを用いてtitleを表示してください -->
-        <%= link_to note.title, note_path(note.id) %>
-
-      </span>
-    </li>
-  <!-- ここにeachメソッドのendを書いてください -->
-
+   <%= render 'notes/note', note: note %>
   <% end %>
 
 </ul>

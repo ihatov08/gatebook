@@ -19,6 +19,6 @@
 
 <ul class="notes">
  <% @notes.each do |note| %>
-    <li><%= link_to note.title, note %></li>
+  <%= render 'notes/note', note: note %>
  <% end %>
 </ul>
