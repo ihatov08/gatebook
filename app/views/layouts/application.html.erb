@@ -18,42 +18,48 @@
 
 </head>
 <body>
+  <header class="navbar">
+    <div class="container">
+      <!-- ヘッダー部分のコードを貼り付けてください -->
+      <div id="logo"><%= link_to "Gatebook", root_path %></div>
+      <% if user_signed_in? %>
+        <ul class="header-right">
+          <li><%= link_to "ユーザー一覧", users_path %></li>
+          <!-- 表示するテキストで、現在ログイン中のユーザーのemailを表示してください -->
+          <li><%= link_to current_user.email, current_user %></li>
 
-<header class="navbar">
-  <div class="container">
-    <div id="logo">Gatebook</div>
-    <ul class="header-right">
-      <li><%= link_to 'トップ', root_path %></li>
-      <li><%= link_to '概要', about_path %></li>
-      <li><%= link_to '新規投稿', new_note_path %></li>
-      <li><%= link_to '投稿一覧', notes_path %></li>
-      <li><%= link_to "ユーザー一覧", users_path %></li>
+          <!-- 送信先を指定してください -->
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
 
-    </ul>
-  </div>
-</header>
+        </ul>
+      <% else %>
+        <ul class="header-right">
+          <li><%= link_to "概要", about_path %></li>
+          <!-- 送信先を指定してください -->
+          <li><%= link_to "新規登録", new_user_registration_path %></li>
 
-<div class="container">
+          <!-- 送信先を指定してください -->
+          <li><%= link_to "ログイン", new_user_session_path %></li>
 
-    <p class="alert alert-success">
-      <!-- ここでnoticeを表示してください -->
-      <%= notice %>
-    </p>
-    <p class="alert alert-danger">
-      <!-- ここでalertを表示してください -->
-      <%= alert %>
-    </p>
+        </ul>
+      <% end %>
 
-<%= yield %>
-</div>
 
-<div class="container">
-  <footer class="footer">
-    <div class="small">
-      &copy; 2015 Progate, Inc.
     </div>
-  </footer>
-</div>
+  </header>
 
+  <div class="container">
+    <p class="alert alert-success"><%= notice %></p>
+    <p class="alert alert-danger"><%= alert %></p>
+    <%= yield %>
+  </div>
+
+  <div class="container">
+    <footer class="footer">
+      <div class="small">
+        &copy; 2015 Progate, Inc.
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
