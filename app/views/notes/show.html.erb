@@ -16,6 +16,8 @@
   <small>
     <!-- 投稿がいいね！されている数を表示してください -->
     <%= link_to @note.likes.count, liking_users_note_path(@note.id) %>人がいいね！といっています
+        <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#like_button">いいね</button>
+
   </small>
 </div>
 
@@ -24,3 +26,18 @@
 
 <%= link_to "削除", note_path(@note.id), method: "delete", class: "btn destroy-btn", "data-confirm" => "本当に削除しますか？" %>
 <% end %>
+
+
+<div class="modal fade" id="like_button">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">お気に入り一覧</h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      </div>
+    </div>
+  </div>
