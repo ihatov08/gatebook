@@ -5,7 +5,6 @@ class LikesController < ApplicationController
     like = current_user.likes.build(note_id: note.id)
     # saveメソッドで、likeを保存してください
     like.save
-    redirect_to note
   end
   def unlike
     note = Note.find(params[:note_id])
