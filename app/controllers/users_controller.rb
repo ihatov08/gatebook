@@ -27,6 +27,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def like_notes
+  end
+
   private
 
     def set_user

@@ -19,7 +19,7 @@
   </section>
 
   <!-- countメソッドを用いて、ユーザーのいいね！している数を表示してください -->
-  <%= @user.likes.count %>個の投稿にいいね!しています
+  <%= link_to @user.likes.count, like_notes_user_path(@user.id) %>個の投稿にいいね!しています
 
   <% if current_user?(@user) %>
   <section>
