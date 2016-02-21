@@ -8,5 +8,11 @@ class LikesController < ApplicationController
     redirect_to note
   end
   def unlike
+    note = Note.find(params[:note_id])
+    # 変数likeに、current_userとfind_byを用いてLikeインスタンスを代入してください
+    like = current_user.likes.find_by(note_id: note.id)
+    # destroyメソッドで、likeを削除してください
+    like.destroy
+    redirect_to note
   end
 end
