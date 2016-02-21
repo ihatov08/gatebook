@@ -1,7 +1,8 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [ :edit, :update]
+  before_action :set_note, only: [:show, :edit, :update, :destroy, :liking_users]
+
 
   def create
     @note = current_user.notes.build(note_params)
@@ -30,6 +31,10 @@ class NotesController < ApplicationController
   def destroy
     @note.destroy
     redirect_to notes_path
+  end
+
+  def liking_users
+    @users = @note.liking_users
   end
 
   private

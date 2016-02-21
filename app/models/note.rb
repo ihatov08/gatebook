@@ -6,4 +6,5 @@ class Note < ActiveRecord::Base
              length: { maximum: 140}
   validates :user_id, presence: true
   has_many :likes
+  has_many :liking_users, through: :likes, source: :user
 end
