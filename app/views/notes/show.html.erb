@@ -15,7 +15,7 @@
 <div>
   <small>
     <!-- 投稿がいいね！されている数を表示してください -->
-    <%= @note.likes.count %>人がいいね！といっています
+    <%= link_to @note.likes.count, liking_users_note(@note.id) %>人がいいね！といっています
   </small>
 </div>
 
