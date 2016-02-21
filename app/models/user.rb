@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
 
+  has_many :likes
+
   def set_image(file)
         if !file.nil?
       file_name = file.original_filename
