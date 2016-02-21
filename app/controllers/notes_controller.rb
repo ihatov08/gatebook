@@ -4,7 +4,7 @@ class NotesController < ApplicationController
   before_action :correct_user, only: [ :edit, :update]
 
   def create
-    @note = Note.new(note_params)
+    @note = current_user.notes.build(note_params)
     if @note.save
     redirect_to @note, notice: "投稿が保存されました"
   else
@@ -37,7 +37,7 @@ class NotesController < ApplicationController
    end
 
    def note_params
-    params.require(:note).permit(:title, :content, :user_id)
+    params.require(:note).permit(:title, :content)
    end
 
    def correct_user
