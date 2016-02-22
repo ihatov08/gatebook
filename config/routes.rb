@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
-  post '/like/:note_id' => 'likes#like', as: 'like'
-  delete '/unlike/:note_id' => 'likes#unlike', as: 'unlike'
+  post '/like/:note_id' => 'notes#like', as: 'like'
+  delete '/unlike/:note_id' => 'notes#unlike', as: 'unlike'
 
   root 'home#top'
   get '/about' => 'home#about'
