@@ -1,0 +1,8 @@
+<div class="reply">
+ <%= form_for Note.new, url:{ controller: :notes, action: :reply, id: @note.id } do |f| %>
+ <%= f.text_field :user_id, value: current_user.id %>
+ <%= f.hidden_field :reply_note_id, value: @note.id %>
+ <%= text_area_tag 'note[content]', "#{@note.user.name}", placeholder: 'reply' %>
+ <%= f.submit 'note', class: "btn btn-primary" %>
+ <% end %>
+</div>

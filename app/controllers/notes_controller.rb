@@ -15,6 +15,7 @@ class NotesController < ApplicationController
   end
 
   def show
+
   end
 
   def edit
@@ -53,6 +54,15 @@ class NotesController < ApplicationController
     # destroyメソッドで、likeを削除してください
     like.destroy
     redirect_to note
+  end
+
+  def reply
+    note = current_user.notes.build(note_params)
+    if note.save
+      redirect_to root_url
+    else
+      render :show
+    end
   end
 
   private

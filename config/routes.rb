@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :notes, only: [:show, :create, :edit, :update, :destroy] do
     member do
       get :liking_users
+      post :reply
     end
   end
 
