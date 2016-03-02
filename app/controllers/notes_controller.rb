@@ -55,7 +55,7 @@ class NotesController < ApplicationController
     like.destroy
     redirect_to note
   end
-
+#返信機能
   def reply
     note = current_user.notes.build(note_params)
     if note.save
@@ -71,7 +71,7 @@ class NotesController < ApplicationController
    end
 
    def note_params
-    params.require(:note).permit(:title, :content)
+    params.require(:note).permit(:title, :content, :reply_note_id)
    end
 
    def correct_user

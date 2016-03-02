@@ -6,12 +6,20 @@
       <span class="content">
         <%= link_to note.title, note_path(note.id) %>
 
-      <div>
+<div>
   <small>
     <!-- 投稿がいいね！されている数を表示してください -->
     <%= note.likes.count %>人がいいね！といっています
   </small>
 </div>
+
+<div>
+  <small>
+    <!-- 投稿がいいね！されている数を表示してください -->
+    <%= link_to note.likes.count, liking_users_note_path(note.id) %>人がいいね！といっています
+  </small>
+</div>
+
       </span>
       <span>
     <%= note.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
