@@ -15,8 +15,10 @@
 
 <div>
   <small>
-    <!-- 投稿がいいね！されている数を表示してください -->
-    <%= link_to note.likes.count, liking_users_note_path(note.id) %>人がいいね！といっています
+    <!-- いいね！しているユーザー一覧
+    のリンク-->
+
+    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#liking_users"><%= link_to note.likes.count, liking_users_note_path(note.id), remote: true %>人がいいね！といっています</button>
   </small>
 </div>
 
