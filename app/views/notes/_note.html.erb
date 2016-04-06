@@ -2,28 +2,28 @@
      <%= image_for(note.user) %>
      <span class="user-name">
       <%= note.user.name %>
-      </span>
-      <span class="content">
-        <%= link_to note.title, note_path(note.id) %>
+    </span>
+    <span class="content">
+      <%= link_to note.title, note_path(note.id) %>
 
-<div>
-  <small>
-    <!-- 投稿がいいね！されている数を表示してください -->
-    <%= note.likes.count %>人がいいね！といっています
-  </small>
-</div>
+      <div>
+        <small>
+          <!-- 投稿がいいね！されている数を表示してください -->
+          <%= note.likes.count %>人がいいね！といっています
+        </small>
+      </div>
 
-<div>
-  <small>
+      <div>
+        <small>
     <!-- いいね！しているユーザー一覧
     のリンク-->
 
-    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#liking_users"><%= link_to note.likes.count, liking_users_note_path(note.id), remote: true %>人がいいね！といっています</button>
+    <button><%= link_to note.likes.count, liking_users_note_path(note.id), remote: true %>人がいいね！といっています</button>
   </small>
 </div>
 
-      </span>
-      <span>
-    <%= note.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-  </span>
-    </li>
+</span>
+<span>
+  <%= note.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+</span>
+</li>
