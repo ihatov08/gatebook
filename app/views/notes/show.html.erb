@@ -20,7 +20,6 @@
 
   </small>
 </div>
-<%= render 'reply' %>
 
 <% if current_user?(@note.user) %>
 <%= link_to '編集', edit_note_path(@note.id), class: 'btn edit-btn' %>

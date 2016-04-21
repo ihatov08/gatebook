@@ -8,12 +8,11 @@ Rails.application.routes.draw do
   resources :notes, only: [:show, :create, :edit, :update, :destroy] do
     member do
       get :liking_users
-      post :reply
     end
   end
 
-  post '/like/:note_id' => 'notes#like', as: 'like'
-  delete '/unlike/:note_id' => 'notes#unlike', as: 'unlike'
+  post '/like/:note_id' => 'likes#like', as: 'like'
+  delete '/unlike/:note_id' => 'likes#unlike', as: 'unlike'
 
   root 'home#top'
   get '/about' => 'home#about'
