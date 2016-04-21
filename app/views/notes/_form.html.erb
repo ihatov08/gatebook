@@ -17,4 +17,12 @@
 内容
 <%= f.text_area :content, class: "form-control content-field" %>
 <%= f.submit "保存", class: "btn primary-btn" %>
+
+ <%= f.radio_button :title, 0 %>男
+ <%= f.radio_button :title, 1 %>女
+ <% options = ["元町", "東町", "南町", "北町", "その他"] %>
+ 地域： <%= f.select :title, options %>
+ <!-- 誕生日: <%= f.date_select :title, start_year: 1940, end_year: Time.now.year, use_month_numbers: true %> -->
+ <%= add_date_unit(f.date_select :title, start_year: 1940, end_year: Time.now.year, use_month_numbers: true) %>
 <% end %>
+

@@ -15,6 +15,7 @@ class NotesController < ApplicationController
   end
 
   def show
+
   end
 
   def edit
@@ -37,13 +38,40 @@ class NotesController < ApplicationController
     @users = @note.liking_users
   end
 
+      def like
+    note = Note.find(params[:note_id])
+    # 変数likeに、current_userとbuildを用いてLikeインスタンスを代入してください
+    like = current_user.likes.build(note_id: note.id)
+    # saveメソッドで、likeを保存してください
+    like.save
+    redirect_to note
+  end
+
+  def unlike
+    note = Note.find(params[:note_id])
+    # 変数likeに、current_userとfind_byを用いてLikeインスタンスを代入してください
+    like = current_user.likes.find_by(note_id: note.id)
+    # destroyメソッドで、likeを削除してください
+    like.destroy
+    redirect_to note
+  end
+#返信機能
+  def reply
+    note = current_user.notes.build(note_params)
+    if note.save
+      redirect_to root_url
+    else
+      render :show
+    end
+  end
+
   private
    def set_note
     @note = Note.find(params[:id])
    end
 
    def note_params
-    params.require(:note).permit(:title, :content)
+    params.require(:note).permit(:title, :content, :reply_note_id)
    end
 
    def correct_user
